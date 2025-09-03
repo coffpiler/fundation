@@ -1,0 +1,40 @@
+@use 'assets/styles/variables' as *;
+@use 'assets/styles/mixins' as *;
+
+.footer {
+  background-color: $bg-dark;
+  color: $white;
+  margin-top: auto;
+}
+
+.container {
+  @include container;
+}
+
+.footer-content {
+  @include flex-between;
+  padding: 2rem 0;
+}
+
+.footer-links {
+  display: flex;
+  gap: 2rem;
+}
+
+.footer-link {
+  color: $text-light;
+  text-decoration: none;
+  transition: $transition-base;
+
+  &:hover {
+    color: $white;
+  }
+}
+
+@include mobile {
+  .footer-content {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+}
