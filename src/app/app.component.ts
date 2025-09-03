@@ -11,5 +11,5 @@ import { FooterComponent } from './shared/components/footer/footer.component';
   templateUrl: './app.component.html'
 })
 export class AppComponent {
-  title = 'angular-app';
+  title = 'mavka-fundation';
 }
