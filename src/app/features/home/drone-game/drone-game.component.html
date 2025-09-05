@@ -1,55 +1,92 @@
-<div class="drone-game-container">
-  <div class="game-header">
-    <h3 class="game-title">{{ 'droneGame.title' | translate | async }}</h3>
-    <div class="game-stats">
-      <div class="stat">
-        <span class="stat-label">{{ 'droneGame.score' | translate | async }}</span>
-        <span class="stat-value">{{ score }}</span>
+<div class="drone-game-container" [class.collapsed]="!gameExpanded">
+  <!-- Game Preview (when collapsed) -->
+  <div class="game-preview" *ngIf="!gameExpanded" (click)="toggleGameExpansion()">
+    <div class="preview-content">
+      <h3 class="preview-title"> {{ 'droneGame.title' | translate | async }}</h3>
+      <div class="preview-parts">
+        <img *ngFor="let part of droneParts.slice(0, 4)" 
+             [src]="part.image" 
+             [alt]="part.nameKey | translate | async" 
+             class="preview-part-image">
       </div>
-      <div class="stat">
-        <span class="stat-label">{{ 'droneGame.time' | translate | async }}</span>
-        <span class="stat-value">{{ timeLeft }}s</span>
-      </div>
+      <button class="expand-btn" (click)="$event.stopPropagation(); toggleGameExpansion()" 
+              title="{{ 'droneGame.clickToExpand' | translate | async }}">
+        <span class="expand-icon">🎮</span>
+        {{ 'droneGame.clickToExpand' | translate | async }}
+      </button>
     </div>
   </div>
 
-  <div class="game-controls" *ngIf="!gameActive">
-    <button class="btn btn-primary game-btn" (click)="startGame()">
-      {{ 'buttons.startGame' | translate | async }}
-    </button>
-    <p class="game-instructions">
-      {{ 'droneGame.instructions' | translate | async }}
-    </p>
-  </div>
-
-  <div class="game-area" [ngStyle]="getGameAreaStyle()" *ngIf="gameActive">
-    <div 
-      *ngFor="let part of droneParts" 
-      class="drone-part"
-      [ngStyle]="getPartStyle(part)"
-      (click)="collectPart(part)"
-      [title]="part.descriptionKey | translate | async"
-    >
-      <img [src]="part.image" [alt]="part.nameKey | translate | async" class="part-image">
-      <div class="part-name">{{ part.nameKey | translate | async }}</div>
-    </div>
-    
-    <div class="game-overlay" *ngIf="timeLeft <= 0">
-      <div class="game-over">
-        <h3>{{ 'droneGame.gameOver' | translate | async }}</h3>
-        <p>{{ 'droneGame.finalScore' | translate | async }} {{ score }}</p>
-        <button class="btn btn-primary" (click)="resetGame()">{{ 'buttons.playAgain' | translate | async }}</button>
+  <!-- Full Game (when expanded) -->
+  <div class="game-full" *ngIf="gameExpanded">
+    <div class="game-header">
+      <div class="game-header-left">
+        <h3 class="game-title">{{ 'droneGame.title' | translate | async }}</h3>
+        <button class="collapse-btn" (click)="toggleGameExpansion()" title="{{ 'droneGame.collapse' | translate | async }}">
+          ✕
+        </button>
+      </div>
+      <div class="game-stats">
+        <div class="game-controls" *ngIf="gameActive">
+          <button class="btn btn-secondary start-over-btn" (click)="startOver()">
+            {{ 'buttons.startOver' | translate | async }}
+          </button>
+        </div>
+        <div class="stat">
+          <span class="stat-label">{{ 'droneGame.score' | translate | async }}</span>
+          <span class="stat-value">{{ score }}</span>
+        </div>
+        <div class="stat">
+          <span class="stat-label">{{ 'droneGame.bestScore' | translate | async }}</span>
+          <span class="stat-value">{{ bestScore }}</span>
+        </div>
+        <div class="stat">
+          <span class="stat-label">{{ 'droneGame.time' | translate | async }}</span>
+          <span class="stat-value">{{ timeLeft }}s</span>
+        </div>
       </div>
     </div>
-  </div>
 
-  <div class="parts-showcase" *ngIf="!gameActive">
-    <h4>{{ 'droneGame.partsShowcase' | translate | async }}</h4>
-    <div class="parts-grid">
-      <div *ngFor="let part of droneParts" class="part-preview">
-        <img [src]="part.image" [alt]="part.nameKey | translate | async" class="preview-image">
-        <span class="preview-name">{{ part.nameKey | translate | async }}</span>
+
+    <div class="game-area" [ngStyle]="getGameAreaStyle()" *ngIf="gameActive">
+      <div 
+        *ngFor="let part of droneParts" 
+        class="drone-part"
+        [ngStyle]="getPartStyle(part)"
+        (click)="collectPart(part)"
+        [title]="part.descriptionKey | translate | async"
+      >
+        <img [src]="part.image" [alt]="part.nameKey | translate | async" class="part-image">
+        <div class="part-name">{{ part.nameKey | translate | async }}</div>
       </div>
+      
+      <div class="game-overlay" *ngIf="timeLeft <= 0">
+        <div class="game-over">
+          <h3>{{ 'droneGame.gameOver' | translate | async }}</h3>
+          <p>{{ 'droneGame.finalScore' | translate | async }} {{ score }}</p>
+          <button class="btn btn-primary" (click)="resetGame()">{{ 'buttons.playAgain' | translate | async }}</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="parts-showcase" *ngIf="!gameActive">
+      <h4>{{ 'droneGame.partsShowcase' | translate | async }}</h4>
+      <div class="parts-grid">
+        <div *ngFor="let part of droneParts" class="part-preview">
+          <img [src]="part.image" [alt]="part.nameKey | translate | async" class="preview-image">
+          <span class="preview-name">{{ part.nameKey | translate | async }}</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="game-controls" *ngIf="!gameActive">
+      <p class="game-instructions">
+        {{ 'droneGame.instructions' | translate | async }}
+      </p>
+      <button class="btn btn-primary game-btn" (click)="startGame()">
+        🎮
+        {{ 'buttons.startGame' | translate | async }}
+      </button>
     </div>
   </div>
 </div>

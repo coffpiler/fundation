@@ -2,16 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TranslatePipe } from '../../../shared/pipes/translate.pipe';
 import { TranslationService } from '../../../shared/services/translation.service';
-
-interface DronePart {
-  id: string;
-  nameKey: string;
-  image: string;
-  x: number;
-  y: number;
-  collected: boolean;
-  descriptionKey: string;
-}
+import { DronePart, DRONE_PARTS } from './drone-parts.data';
 
 @Component({
   selector: 'app-drone-game',
@@ -22,85 +13,37 @@ interface DronePart {
 })
 export class DroneGameComponent implements OnInit, OnDestroy {
   gameActive = false;
+  gameExpanded = false;
   score = 0;
+  bestScore = 0;
   timeLeft = 30;
   gameInterval?: number;
   countdownInterval?: number;
+  private readonly BEST_SCORE_KEY = 'drone-game-best-score';
   
-  droneParts: DronePart[] = [
-    {
-      id: 'frame',
-      nameKey: 'droneGame.parts.droneFrame.name',
-      image: 'assets/images/drone-parts/drone-frame.svg',
-      x: 0,
-      y: 0,
-      collected: false,
-      descriptionKey: 'droneGame.parts.droneFrame.description'
-    },
-    {
-      id: 'camera',
-      nameKey: 'droneGame.parts.fpvCamera.name',
-      image: 'assets/images/drone-parts/fpv-camera.svg',
-      x: 0,
-      y: 0,
-      collected: false,
-      descriptionKey: 'droneGame.parts.fpvCamera.description'
-    },
-    {
-      id: 'vtx',
-      nameKey: 'droneGame.parts.vtx.name',
-      image: 'assets/images/drone-parts/vtx.svg',
-      x: 0,
-      y: 0,
-      collected: false,
-      descriptionKey: 'droneGame.parts.vtx.description'
-    },
-    {
-      id: 'propellers',
-      nameKey: 'droneGame.parts.propellers.name',
-      image: 'assets/images/drone-parts/propellers.svg',
-      x: 0,
-      y: 0,
-      collected: false,
-      descriptionKey: 'droneGame.parts.propellers.description'
-    },
-    {
-      id: 'motors',
-      nameKey: 'droneGame.parts.motors.name',
-      image: 'assets/images/drone-parts/motors.svg',
-      x: 0,
-      y: 0,
-      collected: false,
-      descriptionKey: 'droneGame.parts.motors.description'
-    },
-    {
-      id: 'nav-antenna',
-      nameKey: 'droneGame.parts.navAntenna.name',
-      image: 'assets/images/drone-parts/nav-antenna.svg',
-      x: 0,
-      y: 0,
-      collected: false,
-      descriptionKey: 'droneGame.parts.navAntenna.description'
-    },
-    {
-      id: 'video-antenna',
-      nameKey: 'droneGame.parts.videoAntenna.name',
-      image: 'assets/images/drone-parts/video-antenna.svg',
-      x: 0,
-      y: 0,
-      collected: false,
-      descriptionKey: 'droneGame.parts.videoAntenna.description'
-    }
-  ];
+  droneParts: DronePart[] = [...DRONE_PARTS];
 
   constructor(private translationService: TranslationService) {}
 
   ngOnInit() {
+    this.loadBestScore();
     this.resetGame();
+  }
+
+  toggleGameExpansion(): void {
+    this.gameExpanded = !this.gameExpanded;
+    if (!this.gameExpanded) {
+      this.stopGame();
+    }
   }
 
   ngOnDestroy() {
     this.stopGame();
+  }
+
+  startOver() {
+    this.stopGame();
+    this.resetGame();
   }
 
   startGame() {
@@ -134,7 +77,23 @@ export class DroneGameComponent implements OnInit, OnDestroy {
 
   endGame() {
     this.stopGame();
-    // Show final score
+    this.updateBestScore();
+  }
+
+  private loadBestScore(): void {
+    const saved = localStorage.getItem(this.BEST_SCORE_KEY);
+    this.bestScore = saved ? parseInt(saved, 10) : 0;
+  }
+
+  private saveBestScore(): void {
+    localStorage.setItem(this.BEST_SCORE_KEY, this.bestScore.toString());
+  }
+
+  private updateBestScore(): void {
+    if (this.score > this.bestScore) {
+      this.bestScore = this.score;
+      this.saveBestScore();
+    }
   }
 
   resetGame() {

@@ -11,8 +11,9 @@
   "buttons": {
     "getStarted": "Get Started",
     "learnMore": "Learn More",
-    "startGame": "🎮 Start Game",
-    "playAgain": "Play Again"
+    "startGame": "Start Game",
+    "playAgain": "Play Again",
+    "startOver": "Start Over"
   },
   "features": {
     "title": "Features",
@@ -42,11 +43,14 @@
     }
   },
   "droneGame": {
-    "title": "🚁 Collect Drone Parts!",
-    "instructions": "Click on drone parts as they appear to collect them! Each part gives you 10 points.",
-    "score": "Score:",
-    "time": "Time:",
-    "gameOver": "🎯 Game Over!",
+    "title": "Collect Drone Parts",
+    "instructions": "Click on the floating drone parts to collect them before time runs out!",
+    "clickToExpand": "Click to play",
+    "collapse": "Close game",
+    "score": "Score",
+    "bestScore": "Best",
+    "time": "Time",
+    "gameOver": "Game Over!",
     "finalScore": "Final Score:",
     "partsShowcase": "Drone Parts You'll Collect:",
     "parts": {
@@ -67,8 +71,8 @@
         "description": "High-performance propellers for agile flight"
       },
       "motors": {
-        "name": "Brushless Motors",
-        "description": "Powerful brushless motors for FPV racing"
+        "name": "Motors",
+        "description": "Brushless motors that provide power to spin the propellers"
       },
       "navAntenna": {
         "name": "Navigation Antenna",
