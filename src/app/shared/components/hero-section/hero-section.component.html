@@ -1,8 +1,13 @@
 <!-- Hero Section -->
 <section class="hero-section">
   <div class="hero-content">
+    <div class="hero-header">
+      <h1 class="hero-title">{{ 'hero.title' | translate | async }}</h1>
+      <h2 class="hero-subtitle">{{ 'hero.subtitle' | translate | async }}</h2>
+    </div>
     <div class="hero-intro">
       <p class="hero-text">{{ 'hero.introduction' | translate | async }}</p>
+      <p class="hero-description">{{ 'hero.description' | translate | async }}</p>
     </div>
   </div>
 </section>
