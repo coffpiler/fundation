@@ -1,35 +1,14 @@
 @use 'assets/styles/variables' as *;
 @use 'assets/styles/mixins' as *;
 
-// Keyframe Animations
 @keyframes slideAcross {
-  0% {
-    transform: translateX(-60px);
-    opacity: 0.5;
-  }
-  50% {
-    transform: translateX(20px);
-    opacity: 1;
-  }
-  100% {
-    transform: translateX(-60px);
-    opacity: 0.5;
-  }
+  0%, 100% { transform: translateX(-60px); opacity: 0.5; }
+  50% { transform: translateX(20px); opacity: 1; }
 }
 
 @keyframes slideAcrossReverse {
-  0% {
-    transform: translateX(20px);
-    opacity: 0.5;
-  }
-  50% {
-    transform: translateX(-20px);
-    opacity: 1;
-  }
-  100% {
-    transform: translateX(20px);
-    opacity: 0.5;
-  }
+  0%, 100% { transform: translateX(20px); opacity: 0.5; }
+  50% { transform: translateX(-20px); opacity: 1; }
 }
 
 .drone-game-container {
@@ -43,14 +22,8 @@
 
   &.collapsed {
     height: 100px;
-    
-    @media (max-width: 768px) {
-      height: 120px;
-    }
-    
-    @media (max-width: 480px) {
-      height: 140px;
-    }
+    @media (max-width: 768px) { height: 120px; }
+    @media (max-width: 480px) { height: 140px; }
   }
 }
 
@@ -98,25 +71,12 @@
     opacity: 0.7;
     transition: all 0.3s ease;
 
-    &:nth-child(1) {
-      animation: slideAcross 4s ease-in-out infinite;
-      animation-delay: 0s;
-    }
-
-    &:nth-child(2) {
-      animation: slideAcrossReverse 4s ease-in-out infinite;
-      animation-delay: 1s;
-    }
-
-    &:nth-child(3) {
-      animation: slideAcross 4s ease-in-out infinite;
-      animation-delay: 2s;
-    }
-
-    &:nth-child(4) {
-      animation: slideAcrossReverse 4s ease-in-out infinite;
-      animation-delay: 3s;
-    }
+    &:nth-child(odd) { animation: slideAcross 4s ease-in-out infinite; }
+    &:nth-child(even) { animation: slideAcrossReverse 4s ease-in-out infinite; }
+    &:nth-child(1) { animation-delay: 0s; }
+    &:nth-child(2) { animation-delay: 1s; }
+    &:nth-child(3) { animation-delay: 2s; }
+    &:nth-child(4) { animation-delay: 3s; }
 
     &:hover {
       opacity: 1;
@@ -135,130 +95,37 @@
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
     font-size: 1em;
 
-    &:hover {
-      background: var(--bg-secondary-btn);
-      transform: scale(1.1);
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-    }
+    &:hover { background: var(--bg-secondary-btn); transform: scale(1.1); box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); }
+    &:active { transform: scale(0.95); }
+    &:focus { outline: 2px solid var(--bg-primary-btn); outline-offset: 2px; }
 
-    &:active {
-      transform: scale(0.95);
-    }
-
-    &:focus {
-      outline: 2px solid var(--bg-primary-btn);
-      outline-offset: 2px;
-    }
-
-    .expand-icon {
-      font-size: 1.2rem;
-      margin-right: 0.5rem;
-    }
+    .expand-icon { font-size: 1.2rem; margin-right: 0.5rem; }
   }
 
-  // Tablet styles
-  @media (max-width: 1024px) and (min-width: 769px) {
-    .preview-content {
-      gap: 12px;
-    }
-
-    .preview-title {
-      font-size: 1.1rem;
-    }
-
-    .preview-parts {
-      gap: 6px;
-    }
-
-    .preview-part-image {
-      width: 22px;
-      height: 22px;
-    }
-
-    .expand-btn {
-      font-size: 0.9rem;
-      padding: 8px 12px;
-      
-      .expand-icon {
-        font-size: 1rem;
-      }
-    }
+  @media (max-width: 1024px) {
+    .preview-content { gap: 12px; }
+    .preview-title { font-size: 1.1rem; }
+    .preview-parts { gap: 6px; }
+    .preview-part-image { width: 22px; height: 22px; }
+    .expand-btn { font-size: 0.9rem; padding: 8px 12px; .expand-icon { font-size: 1rem; } }
   }
 
-  // Mobile styles
   @media (max-width: 768px) {
-    height: 120px;
-    padding: 12px 16px;
-
-    .preview-content {
-      flex-direction: row;
-      align-items: center;
-      gap: 8px;
-      flex-wrap: wrap;
-    }
-
-    .preview-title {
-      font-size: 0.95rem;
-      flex: 1;
-      min-width: 120px;
-    }
-
-    .preview-parts {
-      gap: 4px;
-      flex: 1;
-      min-width: 100px;
-      justify-content: flex-start;
-    }
-
-    .preview-part-image {
-      width: 18px;
-      height: 18px;
-    }
-
-    .expand-btn {
-      font-size: 0.85rem;
-      padding: 6px 10px;
-      white-space: nowrap;
-      flex-shrink: 0;
-      
-      .expand-icon {
-        font-size: 0.9rem;
-        margin-right: 0.25rem;
-      }
-    }
+    height: 120px; padding: 12px 16px;
+    .preview-content { flex-wrap: wrap; gap: 8px; }
+    .preview-title { font-size: 0.95rem; flex: 1; min-width: 120px; }
+    .preview-parts { gap: 4px; flex: 1; min-width: 100px; justify-content: flex-start; }
+    .preview-part-image { width: 18px; height: 18px; }
+    .expand-btn { font-size: 0.85rem; padding: 6px 10px; white-space: nowrap; flex-shrink: 0; .expand-icon { font-size: 0.9rem; margin-right: 0.25rem; } }
   }
 
-  // Small mobile styles
   @media (max-width: 480px) {
-    height: 140px;
-    padding: 10px 12px;
-
-    .preview-content {
-      flex-direction: column;
-      align-items: stretch;
-      gap: 8px;
-    }
-
-    .preview-title {
-      font-size: 0.9rem;
-      text-align: center;
-    }
-
-    .preview-parts {
-      justify-content: center;
-      gap: 6px;
-    }
-
-    .preview-part-image {
-      width: 20px;
-      height: 20px;
-    }
-
-    .expand-btn {
-      align-self: center;
-      font-size: 0.8rem;
-      padding: 8px 12px;
-    }
+    height: 140px; padding: 10px 12px;
+    .preview-content { flex-direction: column; align-items: stretch; gap: 8px; }
+    .preview-title { font-size: 0.9rem; text-align: center; }
+    .preview-parts { justify-content: center; gap: 6px; }
+    .preview-part-image { width: 20px; height: 20px; }
+    .expand-btn { align-self: center; font-size: 0.8rem; padding: 8px 12px; }
   }
 }
 
@@ -483,110 +350,32 @@
   opacity: 0.9;
 }
 
-// Tablet responsive styles
-@media (max-width: 1024px) and (min-width: 769px) {
-  .game-full {
-    padding: 1.5rem;
-  }
-  
-  .game-header {
-    gap: 0.75rem;
-  }
-  
-  .game-stats {
-    gap: 1.5rem;
-  }
-  
-  .game-area {
-    height: 350px;
-  }
-  
-  .parts-grid {
-    grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
-  }
+@media (max-width: 1024px) {
+  .game-full { padding: 1.5rem; }
+  .game-header { gap: 0.75rem; }
+  .game-stats { gap: 1.5rem; }
+  .game-area { height: 350px; }
+  .parts-grid { grid-template-columns: repeat(auto-fit, minmax(110px, 1fr)); }
 }
 
-// Mobile responsive styles
 @include mobile {
-  .game-full {
-    padding: 1rem;
-  }
-  
-  .game-header {
-    flex-direction: column;
-    text-align: center;
-    gap: 1rem;
-  }
-  
-  .game-header-left {
-    justify-content: center;
-  }
-  
-  .game-stats {
-    justify-content: center;
-    gap: 1rem;
-    flex-wrap: wrap;
-  }
-  
-  .stat {
-    min-width: 60px;
-  }
-  
-  .game-area {
-    height: 280px;
-  }
-  
-  .parts-grid {
-    grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
-    gap: 0.75rem;
-  }
-  
-  .part-image {
-    width: 32px;
-    height: 32px;
-  }
-  
-  .preview-image {
-    width: 40px;
-    height: 40px;
-  }
+  .game-full { padding: 1rem; }
+  .game-header { flex-direction: column; text-align: center; gap: 1rem; }
+  .game-header-left { justify-content: center; }
+  .game-stats { justify-content: center; gap: 1rem; flex-wrap: wrap; }
+  .stat { min-width: 60px; }
+  .game-area { height: 280px; }
+  .parts-grid { grid-template-columns: repeat(auto-fit, minmax(90px, 1fr)); gap: 0.75rem; }
+  .part-image { width: 32px; height: 32px; }
+  .preview-image { width: 40px; height: 40px; }
 }
 
-// Small mobile responsive styles
 @media (max-width: 480px) {
-  .game-full {
-    padding: 0.75rem;
-  }
-  
-  .game-stats {
-    gap: 0.75rem;
-  }
-  
-  .stat {
-    .stat-label {
-      font-size: 0.75rem;
-    }
-    
-    .stat-value {
-      font-size: 1rem;
-    }
-  }
-  
-  .game-area {
-    height: 250px;
-  }
-  
-  .parts-grid {
-    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
-    gap: 0.5rem;
-  }
-  
-  .part-preview {
-    padding: 0.75rem;
-  }
-  
-  .preview-image {
-    width: 35px;
-    height: 35px;
-  }
+  .game-full { padding: 0.75rem; }
+  .game-stats { gap: 0.75rem; }
+  .stat { .stat-label { font-size: 0.75rem; } .stat-value { font-size: 1rem; } }
+  .game-area { height: 250px; }
+  .parts-grid { grid-template-columns: repeat(auto-fit, minmax(80px, 1fr)); gap: 0.5rem; }
+  .part-preview { padding: 0.75rem; }
+  .preview-image { width: 35px; height: 35px; }
 }
