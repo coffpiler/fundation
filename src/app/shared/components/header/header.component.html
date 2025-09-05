@@ -7,6 +7,9 @@
           <span class="brand-text">Дрони та 3d друк для ЗСУ</span>
         </a>
       </div>
+      <button class="theme-toggle" (click)="toggleTheme()" [attr.aria-label]="(isDarkTheme$ | async) ? 'Switch to light mode' : 'Switch to dark mode'">
+        <span class="theme-icon">{{ (isDarkTheme$ | async) ? '☀️' : '🌙' }}</span>
+      </button>
     </nav>
   </div>
 </header>

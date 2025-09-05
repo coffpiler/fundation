@@ -12,10 +12,11 @@
 .hero-section {
   @include text-center;
   padding: 4rem 0;
-  background: $bg-primary;
-  color: $white;
+  background: var(--bg-hero);
+  color: var(--text-hero);
   margin-bottom: 4rem;
   border-radius: $border-radius-lg;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
 }
 
 .hero-title {
@@ -37,23 +38,11 @@
   flex-wrap: wrap;
 }
 
-.btn {
-  @include button-base;
-}
-
-.btn-primary {
-  @include button-primary;
-}
-
-.btn-secondary {
-  @include button-secondary;
-}
-
 .section-title {
   @include text-center;
   font-size: $font-size-xxxl;
   margin-bottom: 3rem;
-  color: $text-primary;
+  color: var(--text-primary);
 }
 
 .features-grid {
@@ -74,11 +63,11 @@
 .feature-title {
   font-size: $font-size-xl;
   margin-bottom: 1rem;
-  color: $text-primary;
+  color: var(--text-primary);
 }
 
 .feature-description {
-  color: $text-secondary;
+  color: var(--text-secondary);
   line-height: $line-height-lg;
 }
 
@@ -90,9 +79,5 @@
   .hero-actions {
     flex-direction: column;
     align-items: center;
-  }
-  
-  .btn {
-    width: 200px;
   }
 }

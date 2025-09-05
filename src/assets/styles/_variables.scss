@@ -1,11 +1,31 @@
-// Color Variables
-$primary-color: #007bff;
-$primary-hover: #0056b3;
-$secondary-color: #6c757d;
-$success-color: #28a745;
-$danger-color: #dc3545;
-$warning-color: #ffc107;
-$info-color: #17a2b8;
+// Theme Colors - CSS Custom Properties will be set in global styles
+// Light Theme Palette
+$light-bg-main: #EEEFE0;
+$light-bg-highlight: #FFFFFF;
+$light-bg-primary-btn: #A7C1A8;
+$light-bg-secondary-btn: #D1D8BE;
+$light-hero-bg: #819A91;
+
+// Text Colors
+$light-text-primary: #333;
+$light-text-secondary: #666;
+$light-text-muted: #999;
+$light-text-light: #eeefe1;
+$light-text-highlight: #333;
+
+// Dark Theme Palette
+$dark-bg-main: #1E201E;
+$dark-bg-highlight:#3C3D37;
+$dark-bg-primary-btn: #ECDFCC;
+$dark-bg-secondary-btn: #4B5945;
+$dark-hero-bg:  #697565;
+
+// Text Colors
+$dark-text-primary: #ECDFCC;
+$dark-text-secondary: #ccc;
+$dark-text-muted: #999;
+$dark-text-light: #666;
+$dark-text-highlight: #1E201E;
 
 // Neutral Colors
 $white: #ffffff;
@@ -25,11 +45,6 @@ $text-primary: #333;
 $text-secondary: #666;
 $text-muted: #999;
 $text-light: #ccc;
-
-// Background Colors
-$bg-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-$bg-light: #f8f9fa;
-$bg-dark: #333;
 
 // Spacing
 $spacer: 1rem;

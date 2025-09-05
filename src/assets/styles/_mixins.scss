@@ -15,38 +15,47 @@
 
 @mixin button-primary {
   @include button-base;
-  background-color: $primary-color;
-  color: $white;
+  background-color: var(--bg-primary-btn);
+  color: var(--text-hero);
 
   &:hover {
-    background-color: $primary-hover;
+    opacity: 0.8;
     transform: translateY(-2px);
   }
 }
 
 @mixin button-secondary {
   @include button-base;
-  background-color: transparent;
-  color: $white;
-  border: 2px solid $white;
+  background-color: var(--bg-secondary-btn);
+  color: var(--text-primary);
+  border: none;
 
   &:hover {
-    background-color: $white;
-    color: $primary-color;
+    opacity: 0.8;
+    transform: translateY(-2px);
   }
 }
 
 // Card Mixins
 @mixin card {
-  background: $white;
+  background: var(--bg-highlight);
+  color: var(--text-primary);
   padding: 2rem;
   border-radius: $border-radius-lg;
   box-shadow: $box-shadow;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: all 0.3s ease;
 
   &:hover {
     transform: translateY(-5px);
     box-shadow: $box-shadow-lg;
+  }
+
+  .btn-secondary {
+    background-color: red;
+  }
+
+  .btn-secondary {
+    @include button-secondary;
   }
 }
 

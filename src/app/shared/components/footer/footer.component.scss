@@ -2,9 +2,11 @@
 @use 'assets/styles/mixins' as *;
 
 .footer {
-  background-color: $bg-dark;
-  color: $white;
+  background-color: var(--bg-highlight);
+  color: var(--text-primary);
+  border-top: 1px solid var(--text-muted);
   margin-top: auto;
+  transition: all 0.3s ease;
 }
 
 .container {
@@ -22,12 +24,12 @@
 }
 
 .footer-link {
-  color: $text-light;
+  color: var(--text-secondary);
   text-decoration: none;
   transition: $transition-base;
 
   &:hover {
-    color: $white;
+    color: var(--text-primary);
   }
 }
 
