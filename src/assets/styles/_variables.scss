@@ -60,7 +60,7 @@ $spacers: (
 // Border Radius
 $border-radius: 8px;
 $border-radius-sm: 4px;
-$border-radius-lg: 16px;
+$border-radius-lg: 12px;
 
 // Shadows
 $box-shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -79,6 +79,7 @@ $breakpoint-xl: 1200px;
 
 // Typography
 $font-size-base: 1rem;
+$font-size-xs: 0.75rem;
 $font-size-sm: 0.875rem;
 $font-size-lg: 1.25rem;
 $font-size-xl: 1.5rem;

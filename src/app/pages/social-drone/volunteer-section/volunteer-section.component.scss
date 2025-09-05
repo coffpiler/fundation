@@ -74,7 +74,7 @@
   background: var(--bg-hero);
   color: white;
   padding: 1.5rem;
-  border-radius: $border-radius-lg;
+  border-radius: $border-radius;
   margin: 1.5rem 0;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
@@ -137,6 +137,168 @@
   line-height: $line-height-lg;
 }
 
+.donation-section {
+  background: var(--bg-secondary);
+  border-radius: $border-radius-lg;
+  margin-top: 2rem;
+}
+
+.donation-content {
+  margin-bottom: 1.5rem;
+}
+
+.qr-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.qr-code {
+  width: 200px;
+  height: 200px;
+  background: var(--bg-highlight);
+  border: 8px solid var(--bg-highlight);
+  border-radius: $border-radius-sm;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+  overflow: hidden;
+  
+  .qr-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 6px;
+  }
+}
+
+.qr-text {
+  color: var(--text-secondary);
+  font-size: $font-size-sm;
+  text-align: center;
+  padding: 1rem;
+}
+
+.qr-link {
+  display: flex;
+  justify-content: center;
+}
+
+.donation-link {
+  @include button-primary;
+  .link-icon {
+    font-size: 1.2em;
+  }
+}
+
+.project-stats {
+  background: var(--bg-primary);
+  border-radius: $border-radius;
+  border: 1px solid var(--border-color);
+}
+
+.goal-subtitle {
+  color: var(--text-primary);
+  font-size: $font-size-lg;
+  margin-bottom: 1rem;
+}
+
+.stats-title {
+  color: var(--text-primary);
+  font-size: $font-size-lg;
+  margin-bottom: 1rem;
+  margin-top: 1.5rem;
+  font-weight: 600;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: 1rem;
+  background: var(--bg-highlight);
+  border-radius: $border-radius-sm;
+  border-left: 4px solid var(--primary-color);
+  
+  &.goal {
+    border-left-color: var(--success-color);
+    background: linear-gradient(135deg, var(--bg-highlight) 0%, rgba(76, 175, 80, 0.1) 100%);
+  }
+  
+  .stat-label {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+  }
+  
+  .stat-value {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+  }
+  
+  .stat-info {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    opacity: 0.8;
+    margin-top: 0.25rem;
+  }
+  
+  &.summary {
+    .stat-label {
+      font-size: 1.1rem;
+      font-weight: 700;
+    }
+    
+    .stat-value {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--primary-color);
+    }
+  }
+}
+
+.stat-value {
+  font-size: $font-size-lg;
+  color: var(--text-primary);
+  font-weight: 600;
+  
+  &.highlight {
+    color: var(--primary-color);
+    font-size: $font-size-xl;
+  }
+}
+
+.update-dates {
+  border-top: 1px solid var(--border-color);
+  padding-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.update-info {
+  font-size: $font-size-sm;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.help-text {
+  color: var(--text-secondary);
+  font-style: italic;
+  margin-top: 1rem;
+  line-height: $line-height-lg;
+}
+
 .donation-links {
   background: var(--bg-highlight);
   padding: 2rem;
@@ -152,6 +314,29 @@
   margin: 1.5rem 0;
 }
 
+.call-to-action {
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-hover) 100%);
+  border-radius: $border-radius-lg;
+  padding: 2rem;
+  margin: 2rem 0;
+  text-align: center;
+  box-shadow: $box-shadow-lg;
+  
+  .qr-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
+  
+  .qr-code {
+    background: white;
+    padding: 1rem;
+    border-radius: $border-radius;
+    box-shadow: $box-shadow;
+  }
+}
+
 .donation-link {
   @include button-primary;
   display: inline-flex;
@@ -161,21 +346,25 @@
   font-weight: 600;
   transition: all 0.3s ease;
   
-  &.primary {
-    background: var(--primary-color);
+  &.cta-button {
+    background: white;
+    color: var(--primary-color);
+    font-size: 1.1rem;
+    font-weight: 700;
+    padding: 1rem 2rem;
+    border-radius: $border-radius;
+    box-shadow: $box-shadow;
+    border: 2px solid transparent;
     
     &:hover {
-      background: var(--bg-primary-btn);
-      transform: translateY(-2px);
+      background: var(--bg-highlight);
+      transform: translateY(-3px);
+      box-shadow: $box-shadow-lg;
+      border-color: white;
     }
-  }
-  
-  &.secondary {
-    background: var(--secondary-color);
     
-    &:hover {
-      background: var(--bg-secondary-btn);
-      transform: translateY(-2px);
+    .link-icon {
+      font-size: 1.3rem;
     }
   }
 }
@@ -184,12 +373,6 @@
   font-size: 1.2rem;
 }
 
-.help-text {
-  color: var(--text-secondary);
-  font-style: italic;
-  margin-top: 1rem;
-  line-height: $line-height-lg;
-}
 
 @include mobile {
   .volunteer-content {

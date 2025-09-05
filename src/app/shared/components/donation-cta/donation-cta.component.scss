@@ -1,0 +1,82 @@
+@import '../../../assets/styles/variables';
+@import '../../../assets/styles/mixins';
+
+.call-to-action {
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-hover) 100%);
+  border-radius: $border-radius-lg;
+  padding: 2rem;
+  margin: 2rem 0;
+  text-align: center;
+  box-shadow: $box-shadow-lg;
+  
+  .cta-text {
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    line-height: 1.4;
+  }
+  
+  .donation-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+  }
+  
+  .qr-code {
+    width: 60px;
+    height: 60px;
+    background: white;
+    border: 4px solid var(--bg-highlight);
+    border-radius: $border-radius-sm;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    padding: 0.25rem;
+    box-shadow: $box-shadow;
+    flex-shrink: 0;
+    
+    .qr-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 2px;
+    }
+  }
+}
+
+.donation-link {
+  @include button-primary;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  background: white;
+  color: var(--primary-color);
+  font-size: 1rem;
+  font-weight: 700;
+  padding: 0.75rem 1.5rem;
+  border-radius: $border-radius;
+  box-shadow: $box-shadow;
+  border: 2px solid transparent;
+  
+  &:hover {
+    background: var(--bg-highlight);
+    transform: translateY(-2px);
+    box-shadow: $box-shadow-lg;
+    border-color: white;
+  }
+  
+  .link-icon {
+    font-size: 1.1rem;
+  }
+}
+
+.link-icon {
+  font-size: 1.2rem;
+}

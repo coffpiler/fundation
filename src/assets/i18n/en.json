@@ -91,7 +91,19 @@
     "donations": {
       "title": "Support the Project:",
       "components": "Donate for Components",
-      "batteries": "Donate for Batteries"
+      "qrPlaceholder": "QR Code for Donations"
+    },
+    "stats": {
+      "title": "My stats so far",
+      "goal": "Goal",
+      "goalValue": "101 drones, approximately 848,400 UAH",
+      "collected": "Total collected in bank and transferred in cash",
+      "personalExpenses": "Personal expenses (starting from 29.06.2024)",
+      "dronesSent": "Drones sent",
+      "totalExpenses": "Total expenses",
+      "currency": "UAH",
+      "expensesUpdated": "updated",
+      "donationsUpdated": "updated"
     },
     "help": "I'll be happy to help if you have any additional questions. Together we are stronger!"
   },

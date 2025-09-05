@@ -1,22 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
 import { DroneGameComponent } from '../home/drone-game/drone-game.component';
 import { VolunteerSectionComponent } from './volunteer-section/volunteer-section.component';
-import { TranslationService } from '../../shared/services/translation.service';
+import { DonationCtaComponent } from '../../shared/components/donation-cta/donation-cta.component';
+import { PROJECT_STATS } from '../../shared/config/project-stats.config';
 
 @Component({
   selector: 'app-social-drone',
   standalone: true,
-  imports: [CommonModule, HttpClientModule, DroneGameComponent, VolunteerSectionComponent],
+  imports: [CommonModule, DroneGameComponent, VolunteerSectionComponent, DonationCtaComponent],
   templateUrl: './social-drone.component.html',
   styleUrls: ['./social-drone.component.scss']
 })
-export class SocialDroneComponent implements OnInit {
-
-  constructor(private translationService: TranslationService) {}
-
-  ngOnInit(): void {
-    this.translationService.init();
-  }
+export class SocialDroneComponent {
+  projectStats = PROJECT_STATS;
 }

@@ -1,0 +1,35 @@
+<div class="progress-container">
+  <div class="progress-header">
+    <span class="progress-label">{{ label }}</span>
+    <span class="progress-value">{{ current }} / {{ total }}</span>
+  </div>
+  
+  <div class="progress-track">
+    <div class="progress-fill-container">
+      <div class="progress-fill" [style.width.%]="progressPercentage"></div>
+    </div>
+    <div class="progress-marker" [style.left.%]="progressPercentage">
+      <span class="drone-icon">🚀</span>
+    </div>
+    
+    <!-- Checkpoint markers -->
+    <div class="checkpoint-markers">
+      <div 
+        *ngFor="let checkpoint of checkpoints" 
+        class="checkpoint-marker"
+        [class.active]="current >= checkpoint.value"
+        [style.left.%]="checkpoint.percentage">
+        <span class="checkpoint-drone">🚀</span>
+      </div>
+    </div>
+  </div>
+  
+  <div class="progress-scale">
+    <span 
+      *ngFor="let checkpoint of checkpoints" 
+      class="scale-point"
+      [style.left.%]="checkpoint.percentage">
+      {{ checkpoint.value }}
+    </span>
+  </div>
+</div>

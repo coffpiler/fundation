@@ -42,18 +42,45 @@
       </div>
     </div>
     
-    <div class="donation-links">
+    <div class="donation-section">
       <h3 class="subsection-title">{{ 'volunteer.donations.title' | translate | async }}</h3>
-      <div class="links-container">
-        <a href="https://send.monobank.ua/jar/6RShmRTEb" target="_blank" class="donation-link primary">
-          <span class="link-icon">🏦</span>
-          {{ 'volunteer.donations.components' | translate | async }}
-        </a>
-        <a href="https://www.socialdrone.com.ua/" target="_blank" class="donation-link secondary">
-          <span class="link-icon">🔋</span>
-          {{ 'volunteer.donations.batteries' | translate | async }}
-        </a>
+      
+      <div class="donation-content">
+        <div class="project-stats">
+          <h4 class="goal-subtitle">{{ 'volunteer.stats.goal' | translate | async }}</h4>
+          <app-progress-bar 
+            [current]="projectStats.droneGoal.current" 
+            [total]="projectStats.droneGoal.total">
+          </app-progress-bar>
+          
+          <h4 class="stats-title">{{ 'volunteer.stats.title' | translate | async }}</h4>
+          
+          <div class="stats-grid">
+            
+            <div class="stat-item">
+              <span class="stat-label">{{ 'volunteer.stats.collected' | translate | async }}</span>
+              <span class="stat-value">{{ projectStats.financial.collected | number }} {{ 'volunteer.stats.currency' | translate | async }}</span>
+              <small class="stat-info">{{ 'volunteer.stats.donationsUpdated' | translate | async }}: {{ projectStats.updates.donationsDate }}</small>
+            </div>
+            
+            
+            <div class="stat-item">
+              <span class="stat-label">{{ 'volunteer.stats.personalExpenses' | translate | async }}</span>
+              <span class="stat-value">{{ projectStats.financial.personalExpenses | number }} {{ 'volunteer.stats.currency' | translate | async }}</span>
+              <small class="stat-info">{{ 'volunteer.stats.expensesUpdated' | translate | async }}: {{ projectStats.updates.expensesDate }}</small>
+            </div>
+            
+            <div class="stat-item summary">
+              <span class="stat-label">{{ 'volunteer.stats.totalExpenses' | translate | async }}</span>
+              <span class="stat-value">{{ projectStats.financial.totalExpenses | number }} {{ 'volunteer.stats.currency' | translate | async }}</span>
+            </div>
+          </div>
+          
+        </div>
       </div>
+      
+      <!-- <app-donation-cta [donationLink]="projectStats.donationLink" [customText]="'Завдяки вашим спільним зусиллям вдалось зібрати вже третину цілі'"></app-donation-cta> -->
+      
       <p class="help-text">{{ 'volunteer.help' | translate | async }}</p>
     </div>
   </div>

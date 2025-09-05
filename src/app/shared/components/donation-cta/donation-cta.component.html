@@ -1,0 +1,12 @@
+<div class="call-to-action">
+  <p class="cta-text" *ngIf="customText">{{ customText }}</p>
+  <div class="donation-content">
+    <div class="qr-code">
+      <img src="assets/images/sd-qr.jpeg" alt="{{ 'volunteer.donations.qrPlaceholder' | translate | async }}" class="qr-image">
+    </div>
+    <a [href]="donationLink" target="_blank" class="donation-link">
+      <span class="link-icon">🏦</span>
+      {{ 'volunteer.donations.components' | translate | async }}
+    </a>
+  </div>
+</div>
