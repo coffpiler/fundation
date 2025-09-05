@@ -1,0 +1,42 @@
+<svg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="propGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#e74c3c;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#c0392b;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Center hub -->
+  <circle cx="30" cy="30" r="4" fill="#2c3e50" stroke="#1a252f" stroke-width="1"/>
+  <circle cx="30" cy="30" r="2" fill="#34495e"/>
+  
+  <!-- Propeller blades -->
+  <g fill="url(#propGradient)" stroke="#a93226" stroke-width="0.5">
+    <!-- Blade 1 -->
+    <ellipse cx="30" cy="15" rx="3" ry="12" transform="rotate(0 30 30)"/>
+    <!-- Blade 2 -->
+    <ellipse cx="30" cy="15" rx="3" ry="12" transform="rotate(90 30 30)"/>
+    <!-- Blade 3 -->
+    <ellipse cx="30" cy="15" rx="3" ry="12" transform="rotate(180 30 30)"/>
+    <!-- Blade 4 -->
+    <ellipse cx="30" cy="15" rx="3" ry="12" transform="rotate(270 30 30)"/>
+  </g>
+  
+  <!-- Blade tips -->
+  <g fill="#f39c12">
+    <ellipse cx="30" cy="8" rx="1.5" ry="2"/>
+    <ellipse cx="30" cy="52" rx="1.5" ry="2"/>
+    <ellipse cx="8" cy="30" rx="2" ry="1.5"/>
+    <ellipse cx="52" cy="30" rx="2" ry="1.5"/>
+  </g>
+  
+  <!-- Center mounting screw -->
+  <circle cx="30" cy="30" r="1" fill="#1a252f"/>
+  
+  <!-- Motion blur effect -->
+  <g opacity="0.3" stroke="#e74c3c" stroke-width="1" fill="none">
+    <circle cx="30" cy="30" r="8"/>
+    <circle cx="30" cy="30" r="12"/>
+    <circle cx="30" cy="30" r="16"/>
+  </g>
+</svg>

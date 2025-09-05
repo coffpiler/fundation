@@ -1,0 +1,220 @@
+@use 'assets/styles/variables' as *;
+@use 'assets/styles/mixins' as *;
+
+.drone-game-container {
+  background: var(--bg-secondary);
+  border-radius: $border-radius-lg;
+  padding: 2rem;
+  margin: 2rem 0;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.game-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.game-title {
+  font-size: $font-size-xl;
+  margin: 0;
+  color: var(--text-hero);
+}
+
+.game-stats {
+  display: flex;
+  gap: 2rem;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+  .stat-label {
+    font-size: $font-size-sm;
+    opacity: 0.8;
+    margin-bottom: 0.25rem;
+  }
+  
+  .stat-value {
+    font-size: $font-size-lg;
+    font-weight: bold;
+    color: var(--primary-color);
+  }
+}
+
+.game-controls {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.game-btn {
+  font-size: $font-size-lg;
+  padding: 1rem 2rem;
+  margin-bottom: 1rem;
+}
+
+.game-instructions {
+  color: var(--text-hero);
+  opacity: 0.9;
+  font-size: $font-size-base;
+}
+
+.game-area {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: $border-radius-lg;
+  overflow: hidden;
+  cursor: crosshair;
+}
+
+.drone-part {
+  position: absolute;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 10;
+  
+  &:hover {
+    transform: translate(-50%, -50%) scale(1.1);
+    filter: brightness(1.2);
+  }
+  
+  &:active {
+    transform: translate(-50%, -50%) scale(0.95);
+  }
+}
+
+.part-image {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+.part-name {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 0.25rem 0.5rem;
+  border-radius: $border-radius-sm;
+  font-size: $font-size-sm;
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.drone-part:hover .part-name {
+  opacity: 1;
+}
+
+.game-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+
+.game-over {
+  text-align: center;
+  color: white;
+  
+  h3 {
+    font-size: $font-size-xxl;
+    margin-bottom: 1rem;
+  }
+  
+  p {
+    font-size: $font-size-lg;
+    margin-bottom: 2rem;
+  }
+}
+
+.parts-showcase {
+  margin-top: 2rem;
+  
+  h4 {
+    text-align: center;
+    color: var(--text-hero);
+    margin-bottom: 1.5rem;
+    font-size: $font-size-lg;
+  }
+}
+
+.parts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 1rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.part-preview {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: $border-radius;
+  transition: all 0.3s ease;
+  
+  &:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateY(-2px);
+  }
+}
+
+.preview-image {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  margin-bottom: 0.5rem;
+  filter: drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.3));
+}
+
+.preview-name {
+  font-size: $font-size-sm;
+  color: var(--text-hero);
+  text-align: center;
+  opacity: 0.9;
+}
+
+@include mobile {
+  .game-header {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .game-stats {
+    justify-content: center;
+  }
+  
+  .game-area {
+    height: 300px;
+  }
+  
+  .parts-grid {
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  }
+  
+  .part-image {
+    width: 35px;
+    height: 35px;
+  }
+}

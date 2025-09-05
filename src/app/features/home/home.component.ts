@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { DroneGameComponent } from './drone-game/drone-game.component';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, DroneGameComponent],
   styleUrls: ['./home.component.scss'],
   templateUrl: './home.component.html'
 })

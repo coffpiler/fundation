@@ -1,0 +1,55 @@
+<div class="drone-game-container">
+  <div class="game-header">
+    <h3 class="game-title">🚁 Collect Drone Parts!</h3>
+    <div class="game-stats">
+      <div class="stat">
+        <span class="stat-label">Score:</span>
+        <span class="stat-value">{{ score }}</span>
+      </div>
+      <div class="stat">
+        <span class="stat-label">Time:</span>
+        <span class="stat-value">{{ timeLeft }}s</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="game-controls" *ngIf="!gameActive">
+    <button class="btn btn-primary game-btn" (click)="startGame()">
+      🎮 Start Game
+    </button>
+    <p class="game-instructions">
+      Click on drone parts as they appear to collect them! Each part gives you 10 points.
+    </p>
+  </div>
+
+  <div class="game-area" [ngStyle]="getGameAreaStyle()" *ngIf="gameActive">
+    <div 
+      *ngFor="let part of droneParts" 
+      class="drone-part"
+      [ngStyle]="getPartStyle(part)"
+      (click)="collectPart(part)"
+      [title]="part.description"
+    >
+      <img [src]="part.image" [alt]="part.name" class="part-image">
+      <div class="part-name">{{ part.name }}</div>
+    </div>
+    
+    <div class="game-overlay" *ngIf="timeLeft <= 0">
+      <div class="game-over">
+        <h3>🎯 Game Over!</h3>
+        <p>Final Score: {{ score }}</p>
+        <button class="btn btn-primary" (click)="resetGame()">Play Again</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="parts-showcase" *ngIf="!gameActive">
+    <h4>Drone Parts You'll Collect:</h4>
+    <div class="parts-grid">
+      <div *ngFor="let part of droneParts" class="part-preview">
+        <img [src]="part.image" [alt]="part.name" class="preview-image">
+        <span class="preview-name">{{ part.name }}</span>
+      </div>
+    </div>
+  </div>
+</div>

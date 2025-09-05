@@ -1,0 +1,46 @@
+<svg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="vtxGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#27ae60;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2ecc71;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Main VTX board -->
+  <rect x="18" y="15" width="24" height="30" rx="2" fill="url(#vtxGradient)" stroke="#1e8449" stroke-width="1"/>
+  
+  <!-- Heat sink -->
+  <rect x="20" y="17" width="20" height="8" rx="1" fill="#34495e" stroke="#2c3e50" stroke-width="0.5"/>
+  <rect x="21" y="18" width="18" height="1" fill="#7f8c8d"/>
+  <rect x="21" y="20" width="18" height="1" fill="#7f8c8d"/>
+  <rect x="21" y="22" width="18" height="1" fill="#7f8c8d"/>
+  <rect x="21" y="24" width="18" height="1" fill="#7f8c8d"/>
+  
+  <!-- Antenna connector -->
+  <circle cx="30" cy="12" r="3" fill="#f39c12" stroke="#e67e22" stroke-width="1"/>
+  <circle cx="30" cy="12" r="1.5" fill="#1a252f"/>
+  
+  <!-- Power connector -->
+  <rect x="15" y="25" width="3" height="10" rx="1" fill="#e74c3c" stroke="#c0392b" stroke-width="0.5"/>
+  
+  <!-- Channel buttons -->
+  <rect x="22" y="30" width="4" height="3" rx="0.5" fill="#3498db" stroke="#2980b9" stroke-width="0.5"/>
+  <rect x="28" y="30" width="4" height="3" rx="0.5" fill="#3498db" stroke="#2980b9" stroke-width="0.5"/>
+  <rect x="34" y="30" width="4" height="3" rx="0.5" fill="#3498db" stroke="#2980b9" stroke-width="0.5"/>
+  
+  <!-- Status LEDs -->
+  <circle cx="23" cy="37" r="1" fill="#e74c3c"/>
+  <circle cx="27" cy="37" r="1" fill="#f39c12"/>
+  <circle cx="31" cy="37" r="1" fill="#27ae60"/>
+  <circle cx="35" cy="37" r="1" fill="#3498db"/>
+  
+  <!-- Component markings -->
+  <rect x="20" y="40" width="8" height="2" rx="0.5" fill="#95a5a6" opacity="0.7"/>
+  <rect x="32" y="40" width="6" height="2" rx="0.5" fill="#95a5a6" opacity="0.7"/>
+  
+  <!-- Mounting holes -->
+  <circle cx="21" cy="18" r="0.8" fill="#1a252f"/>
+  <circle cx="39" cy="18" r="0.8" fill="#1a252f"/>
+  <circle cx="21" cy="42" r="0.8" fill="#1a252f"/>
+  <circle cx="39" cy="42" r="0.8" fill="#1a252f"/>
+</svg>

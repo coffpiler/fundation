@@ -1,0 +1,49 @@
+<svg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="videoAntennaGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#e74c3c;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#c0392b;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Antenna base/connector -->
+  <rect x="25" y="45" width="10" height="8" rx="2" fill="#34495e" stroke="#2c3e50" stroke-width="1"/>
+  
+  <!-- Main antenna element -->
+  <rect x="28" y="15" width="4" height="30" rx="2" fill="url(#videoAntennaGradient)" stroke="#a93226" stroke-width="0.5"/>
+  
+  <!-- Antenna tip -->
+  <circle cx="30" cy="12" r="2" fill="#f39c12" stroke="#e67e22" stroke-width="0.5"/>
+  
+  <!-- Cloverleaf petals -->
+  <g fill="#e74c3c" stroke="#c0392b" stroke-width="0.5" opacity="0.8">
+    <ellipse cx="30" cy="8" rx="3" ry="8" transform="rotate(0 30 8)"/>
+    <ellipse cx="30" cy="8" rx="3" ry="8" transform="rotate(90 30 8)"/>
+    <ellipse cx="30" cy="8" rx="3" ry="8" transform="rotate(180 30 8)"/>
+    <ellipse cx="30" cy="8" rx="3" ry="8" transform="rotate(270 30 8)"/>
+  </g>
+  
+  <!-- Signal waves -->
+  <g stroke="#e74c3c" stroke-width="1" fill="none" opacity="0.4">
+    <circle cx="30" cy="30" r="10"/>
+    <circle cx="30" cy="30" r="15"/>
+    <circle cx="30" cy="30" r="20"/>
+  </g>
+  
+  <!-- Coaxial cable -->
+  <rect x="32" y="45" width="3" height="10" rx="1.5" fill="#2c3e50"/>
+  
+  <!-- SMA connector -->
+  <rect x="26" y="53" width="8" height="4" rx="1" fill="#95a5a6" stroke="#7f8c8d" stroke-width="0.5"/>
+  
+  <!-- Frequency bands indicator -->
+  <g fill="#f39c12" opacity="0.7">
+    <rect x="20" y="25" width="2" height="8" rx="1"/>
+    <rect x="38" y="25" width="2" height="8" rx="1"/>
+    <rect x="20" y="35" width="2" height="6" rx="1"/>
+    <rect x="38" y="35" width="2" height="6" rx="1"/>
+  </g>
+  
+  <!-- 5.8GHz label -->
+  <rect x="22" y="57" width="16" height="2" rx="0.5" fill="#95a5a6" opacity="0.8"/>
+</svg>
