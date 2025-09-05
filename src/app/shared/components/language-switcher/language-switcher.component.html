@@ -1,0 +1,20 @@
+<div class="language-switcher">
+  <button 
+    class="language-btn"
+    [class.active]="(currentLanguage$ | async) === 'uk'"
+    (click)="switchLanguage('uk')"
+    [attr.aria-label]="'language.ukrainian' | translate | async"
+    title="{{ 'language.ukrainian' | translate | async }}"
+  >
+    🇺🇦
+  </button>
+  <button 
+    class="language-btn"
+    [class.active]="(currentLanguage$ | async) === 'en'"
+    (click)="switchLanguage('en')"
+    [attr.aria-label]="'language.english' | translate | async"
+    title="{{ 'language.english' | translate | async }}"
+  >
+    🇺🇸
+  </button>
+</div>

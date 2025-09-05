@@ -46,6 +46,12 @@
   }
 }
 
+.header-controls {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
 .theme-toggle {
   background: var(--bg-highlight);
   border: none;
@@ -71,5 +77,15 @@
 
   &:active .theme-icon {
     transform: rotate(180deg);
+  }
+}
+
+@include mobile {
+  .header-controls {
+    gap: 0.5rem;
+  }
+  
+  .navbar-brand .brand-text {
+    display: none;
   }
 }

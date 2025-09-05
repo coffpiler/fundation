@@ -1,20 +1,22 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { TranslatePipe } from '../../../shared/pipes/translate.pipe';
+import { TranslationService } from '../../../shared/services/translation.service';
 
 interface DronePart {
   id: string;
-  name: string;
+  nameKey: string;
   image: string;
   x: number;
   y: number;
   collected: boolean;
-  description: string;
+  descriptionKey: string;
 }
 
 @Component({
   selector: 'app-drone-game',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, TranslatePipe],
   templateUrl: './drone-game.component.html',
   styleUrls: ['./drone-game.component.scss']
 })
@@ -28,68 +30,70 @@ export class DroneGameComponent implements OnInit, OnDestroy {
   droneParts: DronePart[] = [
     {
       id: 'frame',
-      name: 'Drone Frame',
+      nameKey: 'droneGame.parts.droneFrame.name',
       image: 'assets/images/drone-parts/drone-frame.svg',
       x: 0,
       y: 0,
       collected: false,
-      description: 'Carbon fiber frame - the backbone of your FPV drone'
+      descriptionKey: 'droneGame.parts.droneFrame.description'
     },
     {
       id: 'camera',
-      name: 'FPV Camera',
+      nameKey: 'droneGame.parts.fpvCamera.name',
       image: 'assets/images/drone-parts/fpv-camera.svg',
       x: 0,
       y: 0,
       collected: false,
-      description: 'Small lightweight camera for first-person view'
+      descriptionKey: 'droneGame.parts.fpvCamera.description'
     },
     {
       id: 'vtx',
-      name: 'Video Transmitter',
+      nameKey: 'droneGame.parts.vtx.name',
       image: 'assets/images/drone-parts/vtx.svg',
       x: 0,
       y: 0,
       collected: false,
-      description: 'VTX - transmits video signal to your goggles'
+      descriptionKey: 'droneGame.parts.vtx.description'
     },
     {
       id: 'propellers',
-      name: 'Propellers',
+      nameKey: 'droneGame.parts.propellers.name',
       image: 'assets/images/drone-parts/propellers.svg',
       x: 0,
       y: 0,
       collected: false,
-      description: 'High-performance propellers for agile flight'
+      descriptionKey: 'droneGame.parts.propellers.description'
     },
     {
       id: 'motors',
-      name: 'Brushless Motors',
+      nameKey: 'droneGame.parts.motors.name',
       image: 'assets/images/drone-parts/motors.svg',
       x: 0,
       y: 0,
       collected: false,
-      description: 'Powerful brushless motors for FPV racing'
+      descriptionKey: 'droneGame.parts.motors.description'
     },
     {
       id: 'nav-antenna',
-      name: 'Navigation Antenna',
+      nameKey: 'droneGame.parts.navAntenna.name',
       image: 'assets/images/drone-parts/nav-antenna.svg',
       x: 0,
       y: 0,
       collected: false,
-      description: 'GPS antenna for precise navigation and return-to-home'
+      descriptionKey: 'droneGame.parts.navAntenna.description'
     },
     {
       id: 'video-antenna',
-      name: 'Video Antenna',
+      nameKey: 'droneGame.parts.videoAntenna.name',
       image: 'assets/images/drone-parts/video-antenna.svg',
       x: 0,
       y: 0,
       collected: false,
-      description: 'Antenna for transmitting live video feed'
+      descriptionKey: 'droneGame.parts.videoAntenna.description'
     }
   ];
+
+  constructor(private translationService: TranslationService) {}
 
   ngOnInit() {
     this.resetGame();

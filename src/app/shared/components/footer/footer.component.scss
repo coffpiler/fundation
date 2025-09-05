@@ -14,29 +14,19 @@
 }
 
 .footer-content {
-  @include flex-between;
   padding: 2rem 0;
+  text-align: center;
 }
 
-.footer-links {
-  display: flex;
-  gap: 2rem;
-}
-
-.footer-link {
+.footer-description {
+  font-size: $font-size-base;
   color: var(--text-secondary);
-  text-decoration: none;
-  transition: $transition-base;
-
-  &:hover {
-    color: var(--text-primary);
-  }
+  margin-bottom: 1rem;
+  line-height: $line-height-lg;
 }
 
-@include mobile {
-  .footer-content {
-    flex-direction: column;
-    gap: 1rem;
-    text-align: center;
-  }
+.footer-copyright {
+  font-size: $font-size-sm;
+  color: var(--text-muted);
+  margin: 0;
 }

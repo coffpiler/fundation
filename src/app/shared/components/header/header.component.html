@@ -3,13 +3,16 @@
     <nav class="navbar">
       <div class="navbar-brand">
         <a routerLink="/" class="brand-link">
-          <img src="assets/images/logo.png" alt="Дрони та 3d друк для ЗСУ" class="logo">
-          <span class="brand-text">Дрони та 3d друк для ЗСУ</span>
+          <img src="assets/images/logo.png" [alt]="'header.brandName' | translate | async" class="logo">
+          <span class="brand-text">{{ 'header.brandName' | translate | async }}</span>
         </a>
       </div>
-      <button class="theme-toggle" (click)="toggleTheme()" [attr.aria-label]="(isDarkTheme$ | async) ? 'Switch to light mode' : 'Switch to dark mode'">
-        <span class="theme-icon">{{ (isDarkTheme$ | async) ? '☀️' : '🌙' }}</span>
-      </button>
+      <div class="header-controls">
+        <app-language-switcher></app-language-switcher>
+        <button class="theme-toggle" (click)="toggleTheme()" [attr.aria-label]="(isDarkTheme$ | async) ? ('header.switchToLightMode' | translate | async) : ('header.switchToDarkMode' | translate | async)">
+          <span class="theme-icon">{{ (isDarkTheme$ | async) ? '☀️' : '🌙' }}</span>
+        </button>
+      </div>
     </nav>
   </div>
 </header>

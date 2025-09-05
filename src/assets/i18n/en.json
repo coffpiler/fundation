@@ -1,0 +1,96 @@
+{
+  "app": {
+    "title": "Drones and 3D Printing",
+    "subtitle": "A modern Angular application with MVC architecture"
+  },
+  "navigation": {
+    "home": "Home",
+    "about": "About",
+    "contact": "Contact"
+  },
+  "buttons": {
+    "getStarted": "Get Started",
+    "learnMore": "Learn More",
+    "startGame": "🎮 Start Game",
+    "playAgain": "Play Again"
+  },
+  "features": {
+    "title": "Features",
+    "modernArchitecture": {
+      "title": "Modern Architecture",
+      "description": "Built with Angular 16+ using standalone components and modern best practices."
+    },
+    "responsiveDesign": {
+      "title": "Responsive Design", 
+      "description": "Fully responsive design that works perfectly on all devices and screen sizes."
+    },
+    "highPerformance": {
+      "title": "High Performance",
+      "description": "Optimized for speed with lazy loading, tree shaking, and efficient change detection."
+    },
+    "secure": {
+      "title": "Secure",
+      "description": "Built-in security features including authentication guards and HTTP interceptors."
+    },
+    "beautifulUI": {
+      "title": "Beautiful UI",
+      "description": "Clean, modern interface with smooth animations and intuitive user experience."
+    },
+    "developerFriendly": {
+      "title": "Developer Friendly",
+      "description": "Well-structured codebase with TypeScript, SCSS, and comprehensive tooling."
+    }
+  },
+  "droneGame": {
+    "title": "🚁 Collect Drone Parts!",
+    "instructions": "Click on drone parts as they appear to collect them! Each part gives you 10 points.",
+    "score": "Score:",
+    "time": "Time:",
+    "gameOver": "🎯 Game Over!",
+    "finalScore": "Final Score:",
+    "partsShowcase": "Drone Parts You'll Collect:",
+    "parts": {
+      "droneFrame": {
+        "name": "Drone Frame",
+        "description": "Carbon fiber frame - the backbone of your FPV drone"
+      },
+      "fpvCamera": {
+        "name": "FPV Camera", 
+        "description": "Small lightweight camera for first-person view"
+      },
+      "vtx": {
+        "name": "Video Transmitter",
+        "description": "VTX - transmits video signal to your goggles"
+      },
+      "propellers": {
+        "name": "Propellers",
+        "description": "High-performance propellers for agile flight"
+      },
+      "motors": {
+        "name": "Brushless Motors",
+        "description": "Powerful brushless motors for FPV racing"
+      },
+      "navAntenna": {
+        "name": "Navigation Antenna",
+        "description": "GPS antenna for precise navigation and return-to-home"
+      },
+      "videoAntenna": {
+        "name": "Video Antenna", 
+        "description": "Antenna for transmitting live video feed"
+      }
+    }
+  },
+  "language": {
+    "english": "English",
+    "ukrainian": "Українська"
+  },
+  "header": {
+    "brandName": "Drones and 3D Printing",
+    "switchToLightMode": "Switch to light mode",
+    "switchToDarkMode": "Switch to dark mode"
+  },
+  "footer": {
+    "copyright": "© 2024 Drones and 3D Printing. All rights reserved.",
+    "description": "Supporting Ukraine's defense through innovative drone technology and 3D printing solutions."
+  }
+}

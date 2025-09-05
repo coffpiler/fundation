@@ -1,45 +1,54 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
 import { DroneGameComponent } from './drone-game/drone-game.component';
+import { TranslatePipe } from '../../shared/pipes/translate.pipe';
+import { TranslationService } from '../../shared/services/translation.service';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, DroneGameComponent],
+  imports: [CommonModule, HttpClientModule, DroneGameComponent, TranslatePipe],
   styleUrls: ['./home.component.scss'],
   templateUrl: './home.component.html'
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit {
   features = [
     {
       icon: '🚀',
-      title: 'Modern Architecture',
-      description: 'Built with Angular 16+ using standalone components and modern best practices.'
+      titleKey: 'features.modernArchitecture.title',
+      descriptionKey: 'features.modernArchitecture.description'
     },
     {
       icon: '📱',
-      title: 'Responsive Design',
-      description: 'Fully responsive design that works perfectly on all devices and screen sizes.'
+      titleKey: 'features.responsiveDesign.title',
+      descriptionKey: 'features.responsiveDesign.description'
     },
     {
       icon: '⚡',
-      title: 'High Performance',
-      description: 'Optimized for speed with lazy loading, tree shaking, and efficient change detection.'
+      titleKey: 'features.highPerformance.title',
+      descriptionKey: 'features.highPerformance.description'
     },
     {
       icon: '🔒',
-      title: 'Secure',
-      description: 'Built-in security features including authentication guards and HTTP interceptors.'
+      titleKey: 'features.secure.title',
+      descriptionKey: 'features.secure.description'
     },
     {
       icon: '🎨',
-      title: 'Beautiful UI',
-      description: 'Clean, modern interface with smooth animations and intuitive user experience.'
+      titleKey: 'features.beautifulUI.title',
+      descriptionKey: 'features.beautifulUI.description'
     },
     {
       icon: '🛠️',
-      title: 'Developer Friendly',
-      description: 'Well-structured codebase with TypeScript, SCSS, and comprehensive tooling.'
+      titleKey: 'features.developerFriendly.title',
+      descriptionKey: 'features.developerFriendly.description'
     }
   ];
+
+  constructor(private translationService: TranslationService) {}
+
+  ngOnInit(): void {
+    this.translationService.init();
+  }
 }
