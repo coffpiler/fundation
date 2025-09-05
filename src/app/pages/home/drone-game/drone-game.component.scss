@@ -34,7 +34,7 @@
 
 .drone-game-container {
   background: var(--bg-highlight);
-  border-radius: 12px;
+  border-radius: $border-radius-lg;
   margin: 24px 0;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   position: relative;
@@ -290,7 +290,7 @@
   color: var(--text-secondary);
   cursor: pointer;
   padding: 4px 8px;
-  border-radius: 4px;
+  border-radius: $border-radius-sm;
   transition: all 0.2s ease;
 
   &:hover {

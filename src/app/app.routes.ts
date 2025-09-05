@@ -8,7 +8,11 @@ export const routes: Routes = [
   },
   {
     path: 'home',
-    loadComponent: () => import('./features/home/home.component').then(m => m.HomeComponent)
+    loadComponent: () => import('./pages/home/home.component').then(m => m.HomeComponent)
+  },
+  {
+    path: 'social-drone',
+    loadComponent: () => import('./pages/social-drone/social-drone.component').then(m => m.SocialDroneComponent)
   },
   {
     path: '**',

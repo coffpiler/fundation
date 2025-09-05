@@ -41,6 +41,7 @@
 }
 
 
+
 @include mobile {
   .hero-title {
     font-size: $font-size-xxl;
@@ -50,4 +51,5 @@
     flex-direction: column;
     align-items: center;
   }
+  
 }

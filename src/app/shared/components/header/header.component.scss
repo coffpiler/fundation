@@ -19,6 +19,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 2rem;
 }
 
 .navbar-brand .brand-link {
@@ -81,6 +82,46 @@
   }
 }
 
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex: 1;
+  justify-content: center;
+}
+
+.nav-link {
+  color: var(--text-primary);
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: $border-radius;
+  transition: all 0.3s ease;
+  position: relative;
+
+  &:hover {
+    color: var(--primary-color);
+    background-color: var(--bg-secondary);
+  }
+
+  &.active {
+    color: var(--primary-color);
+    background-color: var(--bg-secondary);
+    
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 20px;
+      height: 2px;
+      background-color: var(--primary-color);
+      border-radius: 1px;
+    }
+  }
+}
+
 @include mobile {
   .header-controls {
     gap: 0.5rem;
@@ -88,5 +129,14 @@
   
   .navbar-brand .brand-text {
     display: none;
+  }
+  
+  .nav-links {
+    gap: 0.5rem;
+  }
+  
+  .nav-link {
+    padding: 0.25rem 0.5rem;
+    font-size: $font-size-sm;
   }
 }

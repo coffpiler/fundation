@@ -1,0 +1,10 @@
+@use 'assets/styles/variables' as *;
+@use 'assets/styles/mixins' as *;
+
+.social-drone-container {
+  min-height: 80vh;
+}
+
+.container {
+  @include container;
+}

@@ -1,0 +1,60 @@
+<!-- Volunteer Section -->
+<section class="volunteer-section">
+  <div class="volunteer-content">
+    <div class="social-drone-info">
+      <h3 class="subsection-title">
+        <a href="https://www.socialdrone.com.ua/" target="_blank" class="social-drone-link">
+          {{ 'volunteer.socialDrone.title' | translate | async }}
+          <span class="link-icon">🔗</span>
+        </a>
+      </h3>
+      <p class="description">{{ 'volunteer.socialDrone.description' | translate | async }}</p>
+      
+      <div class="idea-highlight">
+        <h4 class="idea-title">{{ 'volunteer.idea.title' | translate | async }}</h4>
+        <p class="idea-text">{{ 'volunteer.idea.description' | translate | async }}</p>
+      </div>
+      
+      <p class="process-description">{{ 'volunteer.process' | translate | async }}</p>
+    </div>
+    
+    <div class="participation-options">
+      <h3 class="subsection-title">{{ 'volunteer.participation.title' | translate | async }}</h3>
+      
+      <div class="options-grid">
+        <div class="option-card">
+          <div class="option-icon">🔧</div>
+          <h4 class="option-title">{{ 'volunteer.options.building.title' | translate | async }}</h4>
+          <p class="option-description">{{ 'volunteer.options.building.description' | translate | async }}</p>
+        </div>
+        
+        <div class="option-card">
+          <div class="option-icon">📦</div>
+          <h4 class="option-title">{{ 'volunteer.options.ordering.title' | translate | async }}</h4>
+          <p class="option-description">{{ 'volunteer.options.ordering.description' | translate | async }}</p>
+        </div>
+        
+        <div class="option-card">
+          <div class="option-icon">💰</div>
+          <h4 class="option-title">{{ 'volunteer.options.donating.title' | translate | async }}</h4>
+          <p class="option-description">{{ 'volunteer.options.donating.description' | translate | async }}</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="donation-links">
+      <h3 class="subsection-title">{{ 'volunteer.donations.title' | translate | async }}</h3>
+      <div class="links-container">
+        <a href="https://send.monobank.ua/jar/6RShmRTEb" target="_blank" class="donation-link primary">
+          <span class="link-icon">🏦</span>
+          {{ 'volunteer.donations.components' | translate | async }}
+        </a>
+        <a href="https://www.socialdrone.com.ua/" target="_blank" class="donation-link secondary">
+          <span class="link-icon">🔋</span>
+          {{ 'volunteer.donations.batteries' | translate | async }}
+        </a>
+      </div>
+      <p class="help-text">{{ 'volunteer.help' | translate | async }}</p>
+    </div>
+  </div>
+</section>

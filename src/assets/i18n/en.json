@@ -57,17 +57,55 @@
       }
     }
   },
+  "hero": {
+    "introduction": "I, Natalia, maintain financial reports for several volunteer initiatives I'm involved in, spending not only my own funds but also those collected through community efforts."
+  },
+  "volunteer": {
+    "title": "Volunteer Activities",
+    "socialDrone": {
+      "title": "SocialDrone",
+      "description": "SocialDrone is a group of volunteers who build FPV drones for the Ukrainian Armed Forces with their own hands. We unite people who want to help our defenders to stop enemy in a distanse."
+    },
+    "idea": {
+      "title": "Project Idea:",
+      "description": "An FPV drone built by your hands for ~$200 can do the job of 1 Javelin shot worth €70,000"
+    },
+    "process": "I collect donations and personal funds, purchase components, assemble drones myself, send them for testing to SocialDrone, and then they transfer them to the military.",
+    "participation": {
+      "title": "How to Get Involved:"
+    },
+    "options": {
+      "building": {
+        "title": "Drone Assembly",
+        "description": "The most interesting part is the assembly process itself. It's not as complicated as it seems at first glance. We'll teach and help you!"
+      },
+      "ordering": {
+        "title": "Parts Ordering",
+        "description": "You can order parts from the community-provided list and find a volunteer who has time and inspiration for assembly."
+      },
+      "donating": {
+        "title": "Financial Support",
+        "description": "You can donate for components, batteries, or any community member's fund. Every contribution matters!"
+      }
+    },
+    "donations": {
+      "title": "Support the Project:",
+      "components": "Donate for Components",
+      "batteries": "Donate for Batteries"
+    },
+    "help": "I'll be happy to help if you have any additional questions. Together we are stronger!"
+  },
   "language": {
     "english": "English",
     "ukrainian": "Українська"
   },
   "header": {
-    "brandName": "Drones and 3D Printing",
+    "brandName": "Fundation",
     "switchToLightMode": "Switch to light mode",
-    "switchToDarkMode": "Switch to dark mode"
+    "switchToDarkMode": "Switch to dark mode",
+    "socialDrone": "SocialDrone"
   },
   "footer": {
-    "copyright": "© 2024 Drones and 3D Printing. All rights reserved.",
-    "description": "Supporting Ukraine's defense through innovative drone technology and 3D printing solutions."
+    "copyright": " 2024 Drones and 3D Printing. All rights reserved."
   }
 }
