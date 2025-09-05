@@ -40,38 +40,6 @@
   flex-wrap: wrap;
 }
 
-.section-title {
-  @include text-center;
-  font-size: $font-size-xxxl;
-  margin-bottom: 3rem;
-  color: var(--text-primary);
-}
-
-.features-grid {
-  @include grid-responsive(300px);
-  margin-bottom: 4rem;
-}
-
-.feature-card {
-  @include card;
-  @include text-center;
-}
-
-.feature-icon {
-  font-size: $font-size-hero;
-  margin-bottom: 1rem;
-}
-
-.feature-title {
-  font-size: $font-size-xl;
-  margin-bottom: 1rem;
-  color: var(--text-primary);
-}
-
-.feature-description {
-  color: var(--text-secondary);
-  line-height: $line-height-lg;
-}
 
 @include mobile {
   .hero-title {
